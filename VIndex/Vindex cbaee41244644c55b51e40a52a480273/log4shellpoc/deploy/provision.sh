@@ -1,6 +1,6 @@
 #!/bin/bash
 
-POC_PATH="./log4j-shell-poc/"
+POC_PATH="./log4shell-poc/"
 
 pip install --no-index --find-links $POC_PATH -r $POC_PATH/requirements.txt
 

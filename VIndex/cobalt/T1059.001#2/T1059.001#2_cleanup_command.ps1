@@ -1,0 +1,1 @@
+Remove-Item $env:Temp\*BloodHound.zip -Force

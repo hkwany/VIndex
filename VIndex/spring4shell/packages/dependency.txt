@@ -1,0 +1,6 @@
+zip
+docker
+python3
+python3-pip
+xterm
+netcat

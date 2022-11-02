@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+**comments
+-->
+<TTP name="T1027" uuid="{ac3a1ef2-67c1-9e99-4a1f-0d449582a8e1}">
+    <Dependencies>
+        <folder name="bin" location="./bin"></folder>
+        <folder name="src" location="./src"></folder>
+        <file name="Word.exe" location="./Word.exe"></file>
+    </Dependencies>
+    <Implementations>
+        <Implementation index="#1">
+            <OS name="Windows 10" location="hkwany-senglin-VAGRANTSLASH-win-10-enterprise-vs2015community" format="VBOX"/>
+            <Scripts>
+                <preRun location="./preRun-T1027.ps1" executor="powershell"></preRun>
+                <Run location="./Run-T1027.ps1" executor="powershell"></Run>
+                <revert location="./revert-T1027.ps1" executor="powershell"></revert>
+            </Scripts>
+        </Implementation>
+    </Implementations>
+</TTP>

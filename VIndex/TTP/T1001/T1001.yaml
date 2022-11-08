@@ -5,6 +5,7 @@ atomic_tests:
   auto_generated_guid: 8bebc690-18c7-4549-bc98-210f7019efff
   description: |
     This Test uses unrar.exe to decompress any rar file that consists of malicious files
+  supported_platforms:
   - windows
   input_arguments:
     unrar_path:

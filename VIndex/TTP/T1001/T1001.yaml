@@ -1,0 +1,40 @@
+attack_technique: T1001
+display_name: 'Decompression'
+atomic_tests:
+- name: decompression via unrar.exe
+  auto_generated_guid: 8bebc690-18c7-4549-bc98-210f7019efff
+  description: |
+    This Test uses unrar.exe to decompress any rar file that consists of malicious files
+  - windows
+  input_arguments:
+    unrar_path:
+      description: |
+        Path for the unrar used to decompress
+      type: String
+      default: C:\Program Files\WinRAR\UnRAR.exe
+    src_rar_file:
+      description: source rar compressed file
+      type: String
+      default: $env:TEMP\Adobe_Flash_install.rar
+    dest_folder:
+      description: the destination folder for src_rar_file to decompress to
+      type: String
+      default: $env:TEMP\
+  dependency_executor_name: powershell
+  dependencies:
+  - description: |
+      WinRAR must be installed
+    prereq_command: |
+      if (Test-Path "#unrar_path") { echo "unrar has existed"; exit 0} else { echo "unrar hasn't existed, please run get_prereq_command"; exit 1} 
+    get_prereq_command: |
+      $url = 'https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-611.exe'
+      [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+      Invoke-WebRequest -Uri $url -OutFile $env:TEMP\/winrar-x64-611.exe
+      & "$env:TEMP\winrar-x64-611.exe" /S
+      echo "winrar installer has been downloaded to: $env:TEMP\/winrar-x64-611.exe, and winrar has been installed to C:\Program Files\WinRAR\"
+  executor:
+    command: |
+      & "#unrar_path" x #src_rar_file #dest_folder
+    cleanup_command: |
+      echo ""
+    name: powershell

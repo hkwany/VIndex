@@ -257,7 +257,9 @@ atomic_tests:
       default: $env:TEMP\Adobe_Flash_install.rar
   executor:
     command: |
-      (New-Object System.Net.WebClient).DownloadFile("#{remote_file}", "#{destination_path}")
+      $url = '#{remote_file}'
+      [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+      Invoke-WebRequest -Uri $url -OutFile #{destination_path}
     cleanup_command: |
       Remove-Item #{destination_path} -Force -ErrorAction Ignore
     name: powershell

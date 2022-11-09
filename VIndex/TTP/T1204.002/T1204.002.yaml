@@ -442,6 +442,6 @@ atomic_tests:
   executor:
     name: powershell
     command: |
-      & "#file_folder\#file_name"
+      & "#{file_folder}\#{file_name}"
     cleanup_command: |
-      taskkill /IM #file_name /F
+      taskkill /IM #{file_name} /F

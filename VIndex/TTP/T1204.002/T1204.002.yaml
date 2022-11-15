@@ -422,10 +422,10 @@ atomic_tests:
       & '.\Excel 2016.lnk' PathToAtomicsFolder\T1204.002\bin\mirrorblast_emulation.xlsm
     cleanup_command: reg delete "HKCU\SOFTWARE\Microsoft\Office\16.0\Excel\Security" /v "VBAWarnings" /f
     name: powershell
-- name: Execution Via PowerShell Using '&'
+- name: Execution Via PowerShell Using 'Start-Process'
   auto_generated_guid: 5202ee05-c420-4148-bf5e-fd7f7d24850c
   description: |
-    Execution Via PowerShell Using '&'
+    Execution Via PowerShell Using 'Start-Process'
   supported_platforms:
     - windows
   input_arguments:
@@ -442,6 +442,6 @@ atomic_tests:
   executor:
     name: powershell
     command: |
-      & "#{file_folder}\#{file_name}"
+      Start-Process -FilePath "#{file_folder}\#{file_name}"
     cleanup_command: |
       taskkill /IM #{file_name} /F

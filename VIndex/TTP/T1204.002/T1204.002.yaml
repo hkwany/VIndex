@@ -466,10 +466,10 @@ atomic_tests:
       description: |
         arguments
       type: String
-      default: "/S 192.168.58.103"
+      default: /S 192.168.58.103
   executor:
     name: powershell
     command: |
-      Start-Process -FilePath "#{file_folder}\#{file_name}" -ArgumentList #{arguments}
+      Start-Process -FilePath "#{file_folder}\#{file_name}" -ArgumentList "#{arguments}"
     cleanup_command: |
       taskkill /IM #{file_name} /F

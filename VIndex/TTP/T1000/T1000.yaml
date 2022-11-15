@@ -20,7 +20,7 @@ atomic_tests:
     LPORT:
       description: LPORT
       type: String
-      default: 4444
+      default: '4444'
     format:
       description: format
       type: String
@@ -57,7 +57,7 @@ atomic_tests:
     LPORT:
       description: LPORT
       type: String
-      default: 4444
+      default: '4444'
   executor:
     command: |
       cat << EOF

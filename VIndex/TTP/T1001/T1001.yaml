@@ -1,5 +1,5 @@
 attack_technique: T1001
-display_name: 'Decompression'
+display_name: 'Compression & Decompression'
 atomic_tests:
 - name: decompression via unrar.exe
   auto_generated_guid: 8bebc690-18c7-4549-bc98-210f7019efff
@@ -39,3 +39,22 @@ atomic_tests:
     cleanup_command: |
       echo ""
     name: powershell
+- name: decompression via tar
+  auto_generated_guid: 8bebc690-18c7-4549-bc98-210f7019efff
+  description: |
+    This Test uses tar to decompress any tar file that consists of malicious files
+  supported_platforms:
+  - linux
+  input_arguments:
+    src_tar_file:
+      description: source tar compressed file
+      type: String
+      default: /tmp/Adobe_Flash_install.tar
+    dest_folder:
+      description: the destination folder for src_tar_file to decompress to
+      type: String
+      default: /tmp
+  executor:
+    command: |
+      tar -xf #{src_tar_file} -C #{dest_folder}
+    name: sh

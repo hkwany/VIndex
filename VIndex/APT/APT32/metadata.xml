@@ -3,37 +3,268 @@
 oceanlotus
 -->
 <APT name="APT32" uuid="{ac3a1ef2-67c1-9e99-4a1f-0d449582a8e1}">
-    <AffectedSystems>
-    </AffectedSystems>
-    <AffectedSoftwares>
-    </AffectedSoftwares>
     <Implementations>
-        <Implementation>
-            <OS name="Windows 10" location="hkwany-senglin-VAGRANTSLASH-win-10-enterprise-vs2015community" format="VBOX"/>
+        <Implementation name="OceanLotusWin">
+            <repositories>
+                <artifacts>
+                    <artifact>
+                        <id>08d3ba25-6d43-49fb-b698-a7d5b26ad796</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1001_1/prerun_08d3ba25-6d43-49fb-b698-a7d5b26ad796.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>0a670756-f4a4-49f8-b2ce-ffe7a71ee99a</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1105_10/run_0a670756-f4a4-49f8-b2ce-ffe7a71ee99a.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>3661f620-d78d-4e24-96b0-b987f3fc8020</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1001_1/run_3661f620-d78d-4e24-96b0-b987f3fc8020.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>44b31f9f-7bde-4d6e-9e25-af438a92ab96</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_13/revert_44b31f9f-7bde-4d6e-9e25-af438a92ab96.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>882c2595-331e-4c0a-abc9-68e3403aaea5</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1000_2/run_882c2595-331e-4c0a-abc9-68e3403aaea5.sh</uri>
+                    </artifact>
+                    <artifact>
+                        <id>b48d5892-a42f-4ce0-90e7-6b6dd75b5c2a</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_12/run_b48d5892-a42f-4ce0-90e7-6b6dd75b5c2a.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>c87a17c2-5f2d-470f-9f78-e83c5f4f4188</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1001_1/revert_c87a17c2-5f2d-470f-9f78-e83c5f4f4188.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>d906d078-f9a2-4e19-88e7-04d41763c945</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_12/revert_d906d078-f9a2-4e19-88e7-04d41763c945.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>e0b5771d-a0f2-4e7e-93fe-96d9d9b732ec</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_13/run_e0b5771d-a0f2-4e7e-93fe-96d9d9b732ec.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>ed5c1a27-455c-4402-894d-9b4e792a33e0</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1105_10/revert_ed5c1a27-455c-4402-894d-9b4e792a33e0.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>f9ec04bc-24bb-4f5e-9fd5-51cc092da346</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1000_1/run_f9ec04bc-24bb-4f5e-9fd5-51cc092da346.sh</uri>
+                    </artifact>
+                </artifacts>
+            </repositories>>
+            <topology>
+                <VM name="victim">
+                    <lan>lan_0</lan>
+                    <url>DHCP</url>
+                    <os>windows</os>
+<!--                    <os>customize::os::senglin/win-10-enterprise-vs2015community</os>-->
+                    <dependency></dependency>
+                    <package></package>
+                    <artifact>
+                        <id>d906d078-f9a2-4e19-88e7-04d41763c945</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>08d3ba25-6d43-49fb-b698-a7d5b26ad796</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>c87a17c2-5f2d-470f-9f78-e83c5f4f4188</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>44b31f9f-7bde-4d6e-9e25-af438a92ab96</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>b48d5892-a42f-4ce0-90e7-6b6dd75b5c2a</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>ed5c1a27-455c-4402-894d-9b4e792a33e0</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>3661f620-d78d-4e24-96b0-b987f3fc8020</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>0a670756-f4a4-49f8-b2ce-ffe7a71ee99a</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>e0b5771d-a0f2-4e7e-93fe-96d9d9b732ec</id>
+                        <dest>/home/{USER}/artifact</dest>
+                    </artifact>
+                </VM>
+                <VM name="attacker">
+                    <lan>lan_1</lan>
+                    <url>DHCP</url>
+                    <os>kali</os>
+                    <dependency>linux-apache2</dependency>
+                    <package></package>
+                    <artifact>
+                        <id>f9ec04bc-24bb-4f5e-9fd5-51cc092da346</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>882c2595-331e-4c0a-abc9-68e3403aaea5</id>
+                        <dest>/home/{USER}/artifact</dest>
+                    </artifact>
+                </VM>
+                <VM name="router">
+                    <lan>lan_0,lan1</lan>
+                    <url>DHCP</url>
+                    <os></os>
+                    <dependency>linux-apache2</dependency>
+                    <package></package>
+                    <artifact></artifact>
+                </VM>
+            </topology>
             <TTPs>
-                <TTP index="1" name="T1105" subtechnique_number="" test="10"/>
-                <TTP index="2" name="T1001" subtechnique_number="" test="1"/>
-                <TTP index="3" name="T1204" subtechnique_number="002" test="12">
+                <TTP index="1" name="T1000" subtechnique_number="" test="1" place="attacker">
+                    <needRoot>True</needRoot>
                     <inputs>
-                        <file_folder>"$env:TEMP\result"</file_folder>
-                        <file_name>"MathClient.exe"</file_name>
+                        <LHOST>attacker::ip</LHOST>
                     </inputs>
-                    <dependency>
-                        <powershell>
-                            <script>"Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n#attacker_ip`tattacker_url" -Force"</script>
-                            <parameter name="attacker_ip"></parameter>
-                        </powershell>
-                        <VM name="attacker" url="DHCP" os="linux" >
-                            <dependency_items>
-                                <dependency_item name="httpd"/>
-                            </dependency_items>
-                            <package_items>
-                                <package_item name="rs_exploit.exe" url="https://github.com/hkwany/VIndex/raw/master/VIndex/TTP/T1001/bin/rs_exploit.exe" dest="/var/www/html/rs_exploit.exe"/>
-                            </package_items>
-                        </VM>
-                    </dependency>
                 </TTP>
-                <TTP index="4" name="T1204" subtechnique_number="002" test="12"/>
+                <TTP index="2" name="T1000" subtechnique_number="" test="2" place="attacker">
+                    <needRoot>False</needRoot>
+                    <inputs>
+                        <LHOST>attacker::ip</LHOST>
+                    </inputs>
+                </TTP>
+                <TTP index="3" name="T1105" subtechnique_number="" test="10" place="victim">
+                    <needRoot>False</needRoot>
+                </TTP>
+                <TTP index="4" name="T1001" subtechnique_number="" test="1" place="victim">
+                    <needRoot>False</needRoot>
+                </TTP>
+                <TTP index="5" name="T1204" subtechnique_number="002" test="13" place="victim">
+                    <needRoot>False</needRoot>
+                    <inputs>
+                        <arguments>attacker::ip</arguments>
+                        <file_folder>$env:TEMP\result</file_folder>
+                        <file_name>MathClient.exe</file_name>
+                    </inputs>
+                </TTP>
+                <TTP index="6" name="T1204" subtechnique_number="002" test="12" place="victim">
+                    <needRoot>False</needRoot>
+                </TTP>
+            </TTPs>
+        </Implementation>
+        <Implementation name="OceanLotusLinux">
+            <repositories>
+                <artifacts>
+                    <artifact>
+                        <id>08d3ba25-6d43-49fb-b698-a7d5b26ad796</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1001_1/prerun_08d3ba25-6d43-49fb-b698-a7d5b26ad796.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>0a670756-f4a4-49f8-b2ce-ffe7a71ee99a</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1105_10/run_0a670756-f4a4-49f8-b2ce-ffe7a71ee99a.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>3661f620-d78d-4e24-96b0-b987f3fc8020</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1001_1/run_3661f620-d78d-4e24-96b0-b987f3fc8020.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>44b31f9f-7bde-4d6e-9e25-af438a92ab96</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_13/revert_44b31f9f-7bde-4d6e-9e25-af438a92ab96.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>882c2595-331e-4c0a-abc9-68e3403aaea5</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1000_2/run_882c2595-331e-4c0a-abc9-68e3403aaea5.sh</uri>
+                    </artifact>
+                    <artifact>
+                        <id>b48d5892-a42f-4ce0-90e7-6b6dd75b5c2a</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_12/run_b48d5892-a42f-4ce0-90e7-6b6dd75b5c2a.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>c87a17c2-5f2d-470f-9f78-e83c5f4f4188</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1001_1/revert_c87a17c2-5f2d-470f-9f78-e83c5f4f4188.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>d906d078-f9a2-4e19-88e7-04d41763c945</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_12/revert_d906d078-f9a2-4e19-88e7-04d41763c945.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>e0b5771d-a0f2-4e7e-93fe-96d9d9b732ec</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1204.002_13/run_e0b5771d-a0f2-4e7e-93fe-96d9d9b732ec.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>ed5c1a27-455c-4402-894d-9b4e792a33e0</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1105_10/revert_ed5c1a27-455c-4402-894d-9b4e792a33e0.ps1</uri>
+                    </artifact>
+                    <artifact>
+                        <id>f9ec04bc-24bb-4f5e-9fd5-51cc092da346</id>
+                        <uri>/home/raptor/Raptor/samples/19_OceanLotusWin/raptor_outputs/ArtifactGenerator_output/atomic_artifacts/T1000_1/run_f9ec04bc-24bb-4f5e-9fd5-51cc092da346.sh</uri>
+                    </artifact>
+                </artifacts>
+            </repositories>>
+            <topology>
+                <VM name="victim">
+                    <lan>lan_0</lan>
+                    <url>DHCP</url>
+                    <os>linux</os>
+                    <dependency></dependency>
+                    <package></package>
+                    <artifact>
+                        <id>d906d078-f9a2-4e19-88e7-04d41763c945</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>08d3ba25-6d43-49fb-b698-a7d5b26ad796</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>c87a17c2-5f2d-470f-9f78-e83c5f4f4188</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>44b31f9f-7bde-4d6e-9e25-af438a92ab96</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>b48d5892-a42f-4ce0-90e7-6b6dd75b5c2a</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>ed5c1a27-455c-4402-894d-9b4e792a33e0</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>3661f620-d78d-4e24-96b0-b987f3fc8020</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>0a670756-f4a4-49f8-b2ce-ffe7a71ee99a</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>e0b5771d-a0f2-4e7e-93fe-96d9d9b732ec</id>
+                        <dest>/home/{USER}/artifact</dest>
+                    </artifact>
+                </VM>
+                <VM name="attacker">
+                    <lan>lan_1</lan>
+                    <url>DHCP</url>
+                    <os>kali</os>
+                    <dependency>linux-apache2</dependency>
+                    <package></package>
+                    <artifact>
+                        <id>f9ec04bc-24bb-4f5e-9fd5-51cc092da346</id>
+                        <dest>/home/{USER}/artifact</dest>
+                        <id>882c2595-331e-4c0a-abc9-68e3403aaea5</id>
+                        <dest>/home/{USER}/artifact</dest>
+                    </artifact>
+                </VM>
+                <VM name="router">
+                    <lan>lan_0,lan1</lan>
+                    <url>DHCP</url>
+                    <os></os>
+                    <dependency>linux-apache2</dependency>
+                    <package></package>
+                    <artifact></artifact>
+                </VM>
+            </topology>
+            <TTPs>
+                <TTP index="1" name="T1000" subtechnique_number="" test="1" place="attacker">
+                    <needRoot>True</needRoot>
+                    <inputs>
+                        <LHOST>attacker::ip</LHOST>
+                    </inputs>
+                </TTP>
+                <TTP index="2" name="T1000" subtechnique_number="" test="2" place="attacker">
+                    <needRoot>False</needRoot>
+                    <inputs>
+                        <LHOST>attacker::ip</LHOST>
+                    </inputs>
+                </TTP>
+                <TTP index="3" name="T1105" subtechnique_number="" test="10" place="victim">
+                    <needRoot>False</needRoot>
+                </TTP>
+                <TTP index="4" name="T1001" subtechnique_number="" test="1" place="victim">
+                    <needRoot>False</needRoot>
+                </TTP>
+                <TTP index="5" name="T1204" subtechnique_number="002" test="13" place="victim">
+                    <needRoot>False</needRoot>
+                    <inputs>
+                        <arguments>attacker::ip</arguments>
+                        <file_folder>$env:TEMP\result</file_folder>
+                        <file_name>MathClient.exe</file_name>
+                    </inputs>
+                </TTP>
+                <TTP index="6" name="T1204" subtechnique_number="002" test="12" place="victim">
+                    <needRoot>False</needRoot>
+                </TTP>
             </TTPs>
         </Implementation>
     </Implementations>

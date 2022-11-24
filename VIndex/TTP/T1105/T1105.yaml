@@ -716,7 +716,7 @@ atomic_tests:
 - name: Linux Download File
   auto_generated_guid: bdc373c5-e9cf-4563-8a7b-a9ba720a90f3
   description: |
-    Utilize linux Curl to download a remote file
+    Utilize linux wget to download a remote file
   supported_platforms:
     - linux
   input_arguments:
@@ -734,6 +734,14 @@ atomic_tests:
     cleanup_command: |
       rm ${dest_path}
     name: sh
+  dependency_executor_name: sh
+  dependencies:
+    - description: |
+        wget must be installed on system.
+      prereq_command: |
+        if (dpkg-query -s wget) {exit 0} else {exit 1}
+      get_prereq_command: |
+        apt-get install wget
 - name: Nimgrab - Transfer Files
   auto_generated_guid: b1729c57-9384-4d1c-9b99-9b220afb384e
   description: |

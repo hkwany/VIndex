@@ -525,6 +525,8 @@ atomic_tests:
       default: /tmp
   dependencies:
   - description: 'configure the runtime dependencies & libraries'
+    prereq_command: |
+      echo "run get_prereq_command"
     get_prereq_command: |
       dpkg -s libcurl4 > /dev/null
       if [ $? == 1 ]; then

@@ -720,7 +720,7 @@ atomic_tests:
   supported_platforms:
     - linux
   input_arguments:
-    remote_url:
+    remote_file:
       description: url of remote file
       type: string
       default: https://github.com/hkwany/VIndex/raw/master/VIndex/TTP/T1105/binary/Adobe_Flash_install.tar

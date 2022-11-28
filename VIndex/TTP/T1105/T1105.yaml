@@ -739,7 +739,8 @@ atomic_tests:
     - description: |
         wget must be installed on system.
       prereq_command: |
-        if (dpkg-query -s wget) {exit 0} else {exit 1}
+        dpkg-query -s wget
+        echo $?
       get_prereq_command: |
         apt-get install wget
 - name: Nimgrab - Transfer Files

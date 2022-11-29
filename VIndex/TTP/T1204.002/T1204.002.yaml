@@ -526,34 +526,33 @@ atomic_tests:
   dependencies:
   - description: 'configure the runtime dependencies & libraries'
     prereq_command: |
-      echo "run get_prereq_command"
+      dpkg -s libcurl4 > /dev/null 2>&1 && dpkg -s libcurl4-openssl-dev > /dev/null 2>&1 && dpkg -s libboost-all-dev > /dev/null 2>&1
     get_prereq_command: |
       dpkg -s libcurl4 > /dev/null
-      if [ $? == 1 ]; then
-              apt-get install libcurl4
+      if [ "$?" -eq 1 ]; then
+              apt-get install -y libcurl4
       fi
       dpkg -s libcurl4-openssl-dev > /dev/null
-      if [ $? == 1 ]; then
-              apt-get install libcurl4-openssl-dev
+      if [ "$?" -eq 1 ]; then
+              apt-get install -y libcurl4-openssl-dev
       fi
       dpkg -s libboost-all-dev > /dev/null
-      if [ $? == 1 ]; then
-              apt-get install libboost-all-dev
+      if [ "$?" -eq 1 ]; then
+              apt-get install -y libboost-all-dev
       fi
-      
-      if [ -z "${LD_LIBRARY_PATH}" ]; then
-          export LD_LIBRARY_PATH="#{library_path}" && \
-              echo "LD_LIBRARY_PATH environment variable set to #{library_path}"
-      else
-          if [[ "${LD_LIBRARY_PATH}" == *"#{library_path}"* ]]; then
-              echo "LD_LIBRARY_PATH already includes the library path #{library_path}."
-          else
-              export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:#{library_path}" && \
-                  echo "LD_LIBRARY_PATH environment variable updated to ${LD_LIBRARY_PATH}"
-          fi
-      fi 
   executor:
     name: sh
     command: |
+      if [ -z "${LD_LIBRARY_PATH}" ]; then
+        export LD_LIBRARY_PATH="#{library_path}" && \
+        echo "LD_LIBRARY_PATH environment variable set to #{library_path}"
+      else
+        if [[ "${LD_LIBRARY_PATH}" == *"#{library_path}"* ]]; then
+                echo "LD_LIBRARY_PATH already includes the library path #{library_path}."
+        else
+                export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:#{library_path}" && \
+                echo "LD_LIBRARY_PATH environment variable updated to ${LD_LIBRARY_PATH}"
+        fi
+      fi
       chmod +x #{file_folder}/#{file_name}
       #{file_folder}/#{file_name} #{parameter} 

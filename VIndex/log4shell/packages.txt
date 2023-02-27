@@ -1,3 +1,0 @@
-# used during construction or events
-
-firefox.deb

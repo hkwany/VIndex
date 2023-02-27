@@ -1,0 +1,25 @@
+atomic_tests:
+- name: T1105_27_prerun.sh
+  supported_platforms:
+  - ubuntu1604
+    - amd64
+  - ubuntu2004
+
+- name: b.exe
+  supported_platforms:
+  - win10
+
+├── ubuntu
+│   └── amd64
+│       ├── T1105_27_prerun.sh
+│       └── T1105_27_run.sh
+├── ubuntu1604
+│   └── amd64
+│       └── Adobe_Flash_install_1604.tar
+├── ubuntu2004
+│   └── amd64
+│       └── Adobe_Flash_install.tar
+└── win10
+    └── amd64
+        ├── Adobe_Flash_install.rar
+        └── rs_exploit.exe
